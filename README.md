@@ -1,0 +1,6 @@
+# sendgrid-reporter
+
+
+## License
+
+MIT
