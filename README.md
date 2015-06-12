@@ -1,6 +1,6 @@
 # sendgrid-reporter
 
-A comman-line tool to get sendgrid statistics using sendgrid web api.
+A comman-line tool to get sendgrid statistics using [sendgrid web api](https://sendgrid.com/docs/API_Reference/index.html).
 
 ## Installation
 
@@ -60,6 +60,58 @@ sendgrid-reporter spam
 * -o: "Optional beginning point in the list to retrieve from."
 * -t: "Hard or Soft. Choose the type of bounce to search for."
 * -email: "Optional email to search."
+
+### Pretty print
+
+Use [jq](http://stedolan.github.io/jq/). The following is a example.
+
+```
+sendgrid-reporter -s 2015-06-12 stat | jq .
+[
+  {
+    "delivered": 3777,
+    "unsubscribes": 0,
+    "repeat_bounces": 49,
+    "invalid_domain": 0,
+    "invalid_email": 47,
+    "bounces": 27,
+    "repeat_unsubscribes": 0,
+    "unique_clicks": 0,
+    "blocked": 6,
+    "spam_drop": 0,
+    "opens": 0,
+    "repeat_spamreports": 0,
+    "replies": 0,
+    "date": "2015-06-12",
+    "requests": 3904,
+    "spamreports": 0,
+    "clicks": 0,
+    "umd_drop": 0,
+    "unique_opens": 0
+  },
+  {
+    "delivered": 157,
+    "unsubscribes": 0,
+    "repeat_bounces": 0,
+    "invalid_domain": 0,
+    "invalid_email": 1,
+    "bounces": 3,
+    "repeat_unsubscribes": 0,
+    "unique_clicks": 0,
+    "blocked": 0,
+    "spam_drop": 0,
+    "opens": 0,
+    "repeat_spamreports": 0,
+    "replies": 0,
+    "date": "2015-06-13",
+    "requests": 161,
+    "spamreports": 0,
+    "clicks": 0,
+    "umd_drop": 0,
+    "unique_opens": 0
+  }
+]
+```
 
 ## License
 
